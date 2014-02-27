@@ -1,0 +1,5 @@
+ users:
+    - !!models.User
+        username:   admin@myhouse.com
+        name:       Admin Account
+        password:   reallyhardpassword         
