@@ -1,0 +1,2 @@
+Application to provide simple rest api to publish retrieve and delete to mqtt topics. 
+Need to set mqtt.host and mqtt.properties to your mqtt broker.

@@ -1,0 +1,23 @@
+@(message: String)
+
+@main("Welcome to Play") {
+	
+
+	<script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
+	<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
+	<script src="/assets/javascripts/mqtttopics.js"></script>
+	<div ng-controller="MqttTableCtrl">
+		<table class="table">
+			<thead>
+				<th>Topic</th>
+				<th>Message</th>
+			</thead>
+			<tr ng-repeat="topic in topics">
+				<td>{{topic.topicName}}</td>
+				<td>{{topic.value}}</td>
+				<td><span class="glyphicon glyphicon-remove-circle" ng-click="deleteTopic()"></span</td>
+			</tr>
+		</table>
+	</div>
+
+}
