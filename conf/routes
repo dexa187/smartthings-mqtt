@@ -11,6 +11,11 @@ GET		/api/v1/topics/*topic				controllers.MqttBridge.getTopic(topic: String)
 PUT		/api/v1/topics/*topic				controllers.MqttBridge.publish(topic: String)
 DELETE	/api/v1/topics/*topic				controllers.MqttBridge.delete(topic: String)
 
+# Auth
+GET     /login                  	controllers.Application.login()
+GET     /logout                     controllers.Application.logout()
+POST    /login                      controllers.Application.authenticate()
+
 # Javascript routing
 GET     /javascripts/routes          controllers.Application.javascriptRoutes()
 

@@ -1,0 +1,47 @@
+@(form: Form[Application.Login])
+
+@helper.form(routes.Application.authenticate) {
+
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>Login</title>
+		<link rel="stylesheet" media="screen" href="@routes.WebJarAssets.at(WebJarAssets.locate("bootstrap.min.css"))">        
+        <link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.at("images/favicon.png")">
+
+    </head>
+    <body>
+    	<script src="@routes.WebJarAssets.at(WebJarAssets.locate("jquery.min.js"))"></script>
+    	<script src="@routes.WebJarAssets.at(WebJarAssets.locate("js/bootstrap.min.js"))"></script>
+    	
+
+   
+  <div class="container">
+	<div class="row">
+		<div class="span4 offset4 well">
+			<legend>Please Sign In</legend>
+    		@if(form.hasGlobalErrors) {
+          	<div class="alert alert-error">
+                <a class="close" data-dismiss="alert" href="#">×</a>Incorrect Username or Password!
+            </div>
+            }
+            @if(flash.contains("success")) {
+            <div class="alert alert-error">
+                <a class="close" data-dismiss="alert" href="#">×</a>@flash.get("success")
+            </div>
+			}
+			<form method="POST" action="" accept-charset="UTF-8">
+			<input type="email" id="email" class="span4" name="email" placeholder="Email" value="@form("email").value">
+			<input type="password" id="password" class="span4" name="password" placeholder="Password">
+            <label class="checkbox">
+            	<input type="checkbox" name="remember" value="1"> Remember Me
+            </label>
+			<button type="submit" name="submit" class="btn btn-info btn-block">Sign in</button>
+			</form>    
+		</div>
+	</div>
+</div>
+</body>
+}
