@@ -1,12 +1,8 @@
-@(message: String)
+@()
 
-@main("Welcome to Play") {
+@main("TopicsList") {
 	
-
-	<script type="text/javascript" src="@routes.Application.javascriptRoutes"></script>
-	<script src="http://code.angularjs.org/angular-1.0.1.min.js"></script>
-	<script src="/assets/javascripts/mqtttopics.js"></script>
-	<div ng-controller="MqttTableCtrl">
+	<div class="container-fluid" ng-controller="MqttTableCtrl">
 		<table class="table">
 			<thead>
 				<th>Topic</th>
@@ -19,5 +15,7 @@
 			</tr>
 		</table>
 	</div>
-
+<script>
+	var pageTopic = "%23";
+</script>
 }

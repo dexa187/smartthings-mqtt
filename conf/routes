@@ -3,7 +3,11 @@
 # ~~~~
 
 # Home page
-GET     /                           controllers.Application.index()
+GET     /                           		controllers.Application.index()
+GET		/topics								controllers.Application.topics()
+GET		/switches							controllers.Application.switches()
+GET		/motions							controllers.Application.motions()
+GET		/doors								controllers.Application.doors()
 
 # API
 GET		/api/v1/topics						controllers.MqttBridge.listTopics()

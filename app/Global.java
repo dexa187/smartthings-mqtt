@@ -4,12 +4,15 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 import models.User;
-
-import com.avaje.ebean.Ebean;
-
 import play.Application;
 import play.GlobalSettings;
+import play.libs.Akka;
 import play.libs.Yaml;
+import services.SmartThingsService;
+import akka.actor.ActorRef;
+import akka.actor.Props;
+
+import com.avaje.ebean.Ebean;
 
 
 public class Global extends GlobalSettings {
@@ -24,5 +27,6 @@ public class Global extends GlobalSettings {
             // Insert users first
             Ebean.save(all.get("users"));
         }
+        final ActorRef smartthingsService = Akka.system().actorOf(Props.create(SmartThingsService.class));
 	}
 }

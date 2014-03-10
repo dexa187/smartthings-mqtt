@@ -3,6 +3,7 @@ package controllers;
 import actions.BasicAuth;
 import models.User;
 import play.Routes;
+import play.api.templates.Html;
 import play.data.Form;
 import play.mvc.*;
 
@@ -10,10 +11,29 @@ import views.html.*;
 
 public class Application extends Controller {
 
-	@BasicAuth 
     public static Result index() {
-        return ok(index.render("Your new application is ready."));
+        return ok(main.render("", null));
     }
+	
+	@BasicAuth
+	public static Result topics() {
+		return ok(topics.render());
+	}
+	
+	@BasicAuth
+	public static Result switches(){
+		return ok(switches.render());
+	}
+	
+	@BasicAuth
+	public static Result motions(){
+		return ok(motions.render());
+	}
+	
+	@BasicAuth
+	public static Result doors(){
+		return ok(doors.render());
+	}
     
     
     public static Result javascriptRoutes() {

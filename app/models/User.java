@@ -8,12 +8,12 @@ import com.avaje.ebean.*;
 public class User extends Model {
 
     @Id
-    public String email;
+    public String username;
     public String name;
     public String password;
     
-    public User(String email, String name, String password) {
-      this.email = email;
+    public User(String username, String name, String password) {
+      this.username = username;
       this.name = name;
       this.password = password;
     }
@@ -22,8 +22,7 @@ public class User extends Model {
         String.class, User.class
     );
     
-    public static User authenticate(String email, String password) {
-        return find.where().eq("email", email)
-            .eq("password", password).findUnique();
-    }
+    public static User authenticate(String username, String password) {
+    	  return find.where().eq("username", username).eq("password", password).findUnique();
+    	}
 }
