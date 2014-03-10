@@ -4,7 +4,7 @@
 	
 	<div class="container-fluid" ng-controller="MqttTableCtrl">
 		<div class="row">
-			<div class="col-md-2 panel panel-default" ng-class="switches[topic.value.switch]" ng-repeat="topic in topics">
+			<div class="col-md-2 panel panel-default" ng-class="switches[topic.value.value.switch]" ng-repeat="topic in topics">
 				<div ng-click="toggleSwitch(topic)" class="panel-heading">{{topic.name}}</div>
 				<div class="panel-body">{{topic.state}}
 					<!--<span class="glyphicon glyphicon-remove-circle" ng-click="deleteTopic()"></span>-->

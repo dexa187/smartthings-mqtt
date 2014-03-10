@@ -35,13 +35,13 @@ function MqttTableCtrl($scope, $http, $rootScope) {
         messageObj.type = metadata[0];
         switch (messageObj.type) {
         	case "switch":
-        		messageObj.state = messageObj.value.switch?"On":"Off";
+        		messageObj.state = messageObj.value.value.switch?"On":"Off";
         		break;
         	case "motion":
-        		messageObj.state = messageObj.value.motion?"Detected":"Not-Detected";
+        		messageObj.state = messageObj.value.value.motion?"Detected":"Not-Detected";
         		break;
         	case "contact":
-        		messageObj.state = messageObj.value.motion?"Open":"Closed";
+        		messageObj.state = messageObj.value.value.motion?"Open":"Closed";
         		break;
         }
         
@@ -83,7 +83,7 @@ function MqttTableCtrl($scope, $http, $rootScope) {
 			data : JSON.stringify(controlValue),
 			contentType : 'text/plain',
 			success : function () {
-				topic.value.switch = !topic.value.switch;
+				topic.value.value.switch = !topic.value.value.switch;
 				$scope.$apply();
 			}
 		});
